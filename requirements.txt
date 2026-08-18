@@ -1,0 +1,17 @@
+# Pin exactly. The LangGraph API moves between minors.
+langgraph==1.2.11
+langgraph-checkpoint==4.2.0
+langchain-core==1.5.6
+langchain-openai==1.5.1     # pulls openai==3.2.0; does not move the langchain-core pin
+mcp==2.0.0                  # MT5 MCP client; 2.0 renamed streamablehttp_client -> streamable_http_client
+matplotlib==3.11.1          # PNG rendering only; charting.derive_levels imports it lazily
+python-docx==1.2.0
+
+# Prod checkpointer (§6). `psycopg[binary]`, not plain `psycopg`: the pure-python build
+# looks for a system libpq, which a Windows box has no reason to have installed.
+langgraph-checkpoint-postgres==3.1.2
+psycopg[binary]==3.3.4
+
+# dev
+pytest==9.1.1
+mypy
